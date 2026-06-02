@@ -1,20 +1,23 @@
 # Task Completion
 
-**状態: 未確定**（tech stack 未決定のため具体的コマンドなし）
+コーディングタスク完了時に必ず実行するコマンド:
 
-## TDD サイクルでの完了基準
+```bash
+# ルートから全テストを実行
+npm test
+```
 
-1. すべてのテストが通過している
-2. linter エラーがない
-3. 型チェックが通る（静的型付き言語の場合）
-4. コミット済み（テスト失敗確認後・実装完了後の2段階）
+## 完了基準（TDD）
 
-## 実装開始後に追記すること
+1. バックエンドテスト全パス（`backend/src/__tests__/todos.test.ts`）
+2. フロントエンドテスト全パス（`frontend/src/__tests__/App.test.tsx`）
+3. TypeScript コンパイルエラーなし
 
-- テストランナーコマンド（例: `npm test`, `pytest`, `go test ./...`）
-- linter コマンド（例: `npm run lint`, `ruff check .`）
-- formatter コマンド
-- 型チェッカーコマンド（例: `tsc --noEmit`, `mypy .`）
-- ビルドコマンド
+## TDD の流れ
 
-`mem:suggested_commands` と合わせて参照。
+1. テストを書く → `npm test` で失敗を確認（Red）
+2. 失敗を確認したらコミット
+3. 実装する → `npm test` で通過を確認（Green）
+4. 全テスト通過でコミット
+
+`mem:conventions` の TDD ルールも参照。
